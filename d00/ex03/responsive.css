@@ -1,15 +1,7 @@
-.transition(@args) {
-    -webkit-transition: @args;
+html
+{
+    background: url("https://vignette4.wikia.nocookie.net/rickandmorty/images/3/37/Mr_poopy_butthole.png/revision/latest?cb=20150819161234") no-repeat center center fixed;
 }
-
-.transform(@args) {
-    -webkit-transform: @args;
-}
-
-.transform-origin(@args) {
-    -webkit-transform-origin: @args;
-}
-
 body {
     font-family: Arial;
     .transform(translateZ(0));
@@ -46,17 +38,7 @@ body {
     text-align: center;
     cursor: default;
     pointer-events: none;
-    .transition(all 200ms ease);
-    
     background-color: rgba(0, 128, 128, 0.6);
-}
-
-.cell:hover .element {
-    border-color: rgba(0,0,0,0.1);
-    .transform(scale(3,3));
-    z-index: 1;
-    
-    background-color: rgba(0, 128, 128, 0.9);
 }
 
 .at_num,
@@ -91,7 +73,7 @@ body {
 
 .cell:nth-child(-n+2) .element,
 .cell:nth-child(n+13) .element {
-    background-color: rgba(0, 160, 96, 0.6);
+    background-color: rgba(135, 188, 135, 0.6);
 }
 
 .cell:nth-child(1) .element,
@@ -99,60 +81,15 @@ body {
 .periodic-row:nth-child(3) .cell:nth-child(n+15) .element,
 .periodic-row:nth-child(4) .cell:nth-child(n+16) .element,
 .periodic-row:nth-child(5) .cell:nth-child(n+17) .element {
-    background-color: rgba(0, 192, 64, 0.6);
+    background-color: rgba(77, 161, 169, 0.6);
 }
 
 .periodic-row:nth-child(-n+6) .cell:nth-child(18) .element {
-    background-color: rgba(64, 192, 0, 0.6);
+    background-color: rgba(246, 196, 43, 0.6);
 }
 
 .periodic-row:nth-child(n+9) .element {
-    background-color: rgba(0, 96, 160, 0.6);
-}
-
-.cell:nth-child(-n+2):hover .element,
-.cell:nth-child(n+13):hover .element {
-    background-color: rgba(0, 160, 96, 0.9);
-}
-
-.cell:nth-child(1):hover .element,
-.periodic-row:nth-child(2) .cell:nth-child(n+14):hover .element,
-.periodic-row:nth-child(3) .cell:nth-child(n+15):hover .element,
-.periodic-row:nth-child(4) .cell:nth-child(n+16):hover .element,
-.periodic-row:nth-child(5) .cell:nth-child(n+17):hover .element {
-    background-color: rgba(0, 192, 64, 0.9);
-}
-
-.periodic-row:nth-child(-n+6) .cell:nth-child(18):hover .element {
-    background-color: rgba(64, 192, 0, 0.9);
-}
-
-.periodic-row:nth-child(n+9) .cell:hover .element {
-    background-color: rgba(0, 96, 160, 0.9);
-}
-
-.cell:nth-child(1) .element {
-    .transform-origin(0 50%);
-}
-
-.cell:nth-child(18) .element {
-    .transform-origin(100% 50%);
-}
-
-.periodic-row:nth-child(10) .cell .element {
-    .transform-origin(50% 100%);
-}
-
-.periodic-row:nth-child(1) .cell:nth-child(1) .element {
-    .transform-origin(0 0);
-}
-
-.periodic-row:nth-child(1) .cell:nth-child(18) .element {
-    .transform-origin(100% 0);
-}
-
-.periodic-row:nth-child(10) .cell:nth-child(18) .element {
-    .transform-origin(100% 100%);
+    background-color: rgba(250, 131, 52, 0.6);
 }
 
 @media (min-width: 600px) {

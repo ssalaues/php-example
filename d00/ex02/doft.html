@@ -1,48 +1,57 @@
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Day of the 42</title>
-		<link rel="stylesheet" href="doft.css" />
-	</head>
-	<body>
-		<div id="top">
-			<div id="logo"><img height=110px src="resources/day_of_the_42.png"></div>
-			<div id="loupe"><img title="zoom" src="resources/loupe.png"></div>
-			<a href="http://www.disney.com"><img id="reload" height=20px src="resources/reload.png"></a>
-			<a href="http://www.relaischateaux.com"><img id="close" src="resources/close.gif"></a>
-		</div>
-		<div id="middle">
-			<div id="col1">
-				<ul>
-					<li><img id="arrow" height=70px src="resources/arrow.png"></li>
-					<li><img id="take" height=70px src="resources/main.png"></li>
-					<li><img id="look" height=70px src="resources/oeil.png"></li>
-					<li><img id="use"  height=70px src="resources/outil.png"></li>
-					<li><img id="chat" height=70px src="resources/chat-icon.png"></li>
-				</ul>
-			</div>
-			<div id="col2">
-				<ul>
-					<li><img id="panic" height=100px src="resources/book.png"></li>
-					<li><img id="towel" height=50px src="resources/towel.png"></li>
-					<li><div id="wall"></div></li>
-				</ul>
-			</div>
-			<div id="center">
-				<img title="cluster" id="cluster" height=565px src="resources/cluster.jpg" usemap="#cluster_map">
-				<map name="#cluster_map">
-					<area shape="rect" coords="310,330,480,700" alt="ikea" href="http://www.ikea.com">
-					<area shape="rect" coords="780,330,970,550" alt="apple" href="http://www.apple.com">
-				</map>
-			</div>
-			<div id="enter">
-				<form id="answer"><p>Vous <strong>entrez</strong> alors dans une grande piece remplie d'<span id="shadow";>ordinateurs</span>...<br />
-				<i>- Bonjour, vous &#234;tes nouveau ici ?</i><br />
-				
-					<input name="get_answer" size="65">
-					<input type="submit" value="Repondre">
-				</p></form>
-			</div>
-		</div>
-	</body>
+    <head>
+        <title>Day of the 42</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" href="doft.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <header class="box">
+                <img class="img-header" src="resources/day_of_the_42.png" title="Mr Poopybutt hole"/>
+                <a href="http://www.disney.com" title="Mr Poopybutt hole">
+                    <img class="img-reload" src="resources/reload.png"/>
+                </a>
+                <a href="http://www.relaischateaux.com" title="Mr Poopybutt hole">
+                    <img class="img-close" src="resources/close.gif"/>
+                </a>
+                <a ti>
+                <img class="img-mag" src="resources/loupe.png" title="Mr Poopybutt hole"/>
+            </header>
+            <div class="padding-v">
+                <aside class="col2">
+                    <div class="box">
+                        <center>
+                            <a href="#" title="Mr Poopybutt hole"><img class="img-icon" src="resources/arrow.png"/></a>
+                            <a href="#" title="Mr Poopybutt hole"><img class="img-icon" src="resources/main.png"/></a>
+                            <a href="#" title="Mr Poopybutt hole"><img class="img-icon borders" src="resources/oeil.png"/></a>
+                            <a href="#" title="Mr Poopybutt hole"><img class="img-icon" src="resources/outil.png"/></a>
+                            <a href="#" title="Mr Poopybutt hole"><img class="img-icon" src="resources/chat-icon.png"/></a>
+                        </center>
+                    </div>
+                </aside><article class="col8">
+                             <div class="box">
+                                 <img class="img-full" title="Mr Poopybutt hole" src="resources/cluster.jpg" usemap = "#map">
+                                     <map name="map">
+                                         <area shape="rect" coords="300,300,400,450" title="Ikea" href="http://www.ikea.com">
+                                             <area shape="rect" coords="900,300,750,420" title="Apple" href="http://www.apple.com">
+                                                 </map>
+                                     </div>
+                         </article><aside class="col2">
+                                        <div class="box col-right">
+                                            <center>
+                                                <a href="#" title="Mr Poopybutt hole"><img class="img-icon" src="resources/book.png"/></a>
+                                                <a href="#" title="Mr Poopybutt hole"><img class="img-icon" src="resources/towel.png"/></a>
+                                            </center>
+                                            <a href="#" title="Mr Poopybutt hole"><div class="img-bricks"></div></a>
+                                        </div>
+                                    </aside>
+            </div>
+            <div class="window">
+                Vous <span class="txt-big">entrez</span> alors dans une grande piéce remplie d'<span class="txt-shadow">ordinateurs</span>...<br/>
+                <span class="txt-italic">- Bonjour, vous êtes nouveau ici ?</span><br/>
+                <input type="text" class="input-text"/>
+                <button>Repondre</button>
+            </div>
+        </div>
+    </body>
 </html>
