@@ -28,7 +28,7 @@ if ($argc > 1)
 		$bstagpos = strpos($arr[$i], "</a>");
 		$atag = substr($arr[$i], 0, $endtagpos + 1);
 		$contents = substr($arr[$i], $endtagpos + 1, $bstagpos - ($endtagpos + 1));
-		$at = get_title_endpos($atag);
+		$at = endtag($atag);
 		print(substr($atag, $at));
 		$j = strpos($contents, "<img");
 		print(strtoupper(substr($contents, 0, $j)));

@@ -1,15 +1,14 @@
 #!/usr/bin/php
 <?php
 date_default_timezone_set("Europe/Paris");
-$months = array("Janvier" => 1, "Février" => 2, "Mars" => 3, "Avril" => 4, "Mai" => 5, "Juin" => 6, "Juillet" => 7, "Août" => 8, "Septembre" => 9, "Octobre" => 10, "Novembre" => 11, "Décembre" => 12);
+$months = array("janvier" => 1, "février" => 2, "mars" => 3, "avril" => 4, "mai" => 5, "juin" => 6, "juillet" => 7, "août" => 8, "septembre" => 9, "octobre" => 10, "novembre" => 11, "décembre" => 12);
 
 if ($argv[1])
 {
 	
-    if (preg_match("/(Lundi|Mardi|Mercredi|Jeudi|Vendredi|Samedi|Dimanche) ([0-9]{2}) (Janvier|Février|Mars|Avril|Mai|Juin|Juillet|Août|Septembre|Octobre|Novembre|Décembre) ([0-9]{4}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/", $argv[1], $time));
+    if (preg_match("/([Ll]undi|[Mm]ardi|[Mm]ercredi|[Jj]eudi|[Vv]endredi|[Ss]amedi|[Dd]imanche) ([0-9]{2}) ([Jj]anvier|[Ff]évrier|[Mm]ars|[Aa]vril|[Mm]ai|[Jj]uin|[Jj]uillet|[Aa]oût|[Ss]eptembre|[Oo]ctobre|[Nn]ovembre|[Dd]écembre) ([0-9]{4}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/", $argv[1], $time));
     {
-    print_r($time);
-    $str = mktime($time[5], $time[6], $time[7], $months[$time[3]], $time[2], $time[4]);
+    $str = mktime($time[5], $time[6], $time[7], $months[strtolower($time[3])], $time[2], $time[4]);
     print($str);
     echo "\n";
     }
