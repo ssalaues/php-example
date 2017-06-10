@@ -1,9 +1,8 @@
-<html>
-	<head><title>User Modification</title></head>
-	<body>
 <?php
 	session_start();
 ?>
+<html>
+	<body>
 		<form method="get">
 		Username: <input type="text" name="name" value="<?php echo $_SESSION['login'];?>"><br><br>
 		Password: <input type="password" name="passwd" value="<?php echo $_SESSION['passwd'];?>">
@@ -11,8 +10,8 @@
 	</form>
 <?php
 echo "<h2>Your Input:</h2>";
-echo $name;
-echo $passwd;
+echo $_SESSION['login'];
+echo $_SESSION['passwd'];
 ?>
 </body>
 </html>
