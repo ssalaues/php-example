@@ -1,6 +1,15 @@
 <?php
-	$cookie_action = $_GET['action'];
-	$cookie_name = $_GET['name'];
-	$cookie_value = $_GET['value'];
-	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+	if ($_GET['action'] === 'set')
+	{
+		setcookie($_GET['name'], $_GET['value'], time() + (86400 * 30));
+	}
+	else if($_GET['action'] === "get')
+	{
+		if ($_COOKIE[$_GET["name"]] != FALSE)
+		echo $_COOKIE[$_GET["name"]] . "\n";
+	}
+	else if ($_GET["action"] === "del")
+	{
+		setcookie($_GET["name"], "Terminated", 1);
+	}
 ?>
