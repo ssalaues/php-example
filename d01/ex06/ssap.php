@@ -3,17 +3,18 @@
 if ($argv[1])
 {	
 	unset($argv[0]);
+	$arr = array();
 	foreach($argv as $value)
 	{
-		$split[] = $value;
+		$exploded = explode(' ', $value);
+		$filtered = array_filter($exploded);
+		foreach ($filtered as $newV)
+			$arr[] = $newV;
 	}
-	$str = implode(" ", $split); 
-	$split = explode(' ', $str);
-	$split = array_filter($split);
-	$split = array_splice($split, 0);
-	for ($i = 0; $split[$i]; $i++)
+	sort($arr);
+	for ($i = 0; $arr[$i]; $i++)
 	{
-		print($split[$i]);
+		print($arr[$i]);
 		echo "\n";
 	}
 }
