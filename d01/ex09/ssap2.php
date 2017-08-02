@@ -1,34 +1,51 @@
 #!/usr/bin/php
 <?php
+function get_val($char)
+{
+	$val = ord($char);
+	if ($val == 0)
+		return $val;
+	if (!ctype_alpha($char) && !is_numeric($char))
+		$val += 1000;
+	else if (is_numeric($char))
+		$val += 100;
+	else if (ctype_upper($char))
+		$val += 32;
+	return $val;
+}
+
+function ssap_compare($s1, $s2)
+{
+	if ($s1 == $s2)
+		return 0;
+	$s1_len = strlen($s1);
+	$s2_len = strlen($s2);
+	for($i = 0; $i < $s1_len && $i < $s2_len; $i++)
+	{
+		$s1_val = get_val($s1[$i]);
+		$s2_val = get_val($s2[$i]);
+		if ($s1_val != $s2_val)
+			return ($s1_val < $s2_val ? -1 : 1);
+	}
+	if ($i == $s1_len && $i == $s1_len)
+		return 0;
+	if ($i == $s1_len)
+		return -1;
+	return 1;
+}
+
 if ($argv[1])
-{	
+{
 	unset($argv[0]);
-	$arr = $alpha = $numeric = $special = array();
+	$array = array();
 	foreach($argv as $value)
 	{
 		$exploded = explode(' ', $value);
 		$filtered = array_filter($exploded);
-		foreach($filtered as $str)
-		{
-			if (ctype_alpha($str[0]))
-				$alpha[] = $str;
-			else if (is_numeric($str[0]))
-				$numeric[] = $str;
-			else
-				$special[] = $str;
-		}
+		$array = array_merge($array, $filtered);
 	}
-	if ($alpha)
-		natcasesort($alpha);
-	if ($numeric)
-		sort($numeric, SORT_STRING);
-	if ($special)
-		natcasesort($special);
-	$arr = array_merge($alpha, $numeric, $special);
-	for ($i = 0; $arr[$i]; $i++)
-	{
-		print($arr[$i]);
-		echo "\n";
-	}
+	usort($array, 'ssap_compare');
+	for($i = 0; $array[$i]; $i++)
+		echo $array[$i]."\n";
 }
 ?>
