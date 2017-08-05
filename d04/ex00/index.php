@@ -1,9 +1,9 @@
 <?php
 	session_start();
-	if ($_GET['submit'] === "SENT")
+	if ($_GET['submit'] === "OK")
 	{
 		$_SESSION["login"] = $_GET["login"];
-		$_SESSION{"passwd"] = $_GET["passwd"];
+		$_SESSION["passwd"] = $_GET["passwd"];
 	}
 ?>
 <html>
@@ -11,12 +11,12 @@
 		<form method="get">
 		Username: <input type="text" name="name" value="<?php echo $_SESSION['login'];?>"><br><br>
 		Password: <input type="password" name="passwd" value="<?php echo $_SESSION['passwd'];?>">
-		<input type="submit" name="submit" value="SENT">
+		<input type="submit" name="submit" value="OK">
 	</form>
 <?php
-echo "<h2>Your Input:</h2>";
-echo $_SESSION['login'];
-echo $_SESSION['passwd'];
+	echo "<h2>Your Input:</h2>";
+	echo $_SESSION['login'];
+	echo $_SESSION['passwd'];
 ?>
 </body>
 </html>

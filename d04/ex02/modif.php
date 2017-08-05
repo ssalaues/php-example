@@ -1,40 +1,32 @@
 <?php
 	function err()
 	{
-		echo "ERROR\N";
+		echo "ERROR\n";
 		exit;
 	}
-?>
-<?php
-	if ($_POST['submit'] !== "OK")
-	{
+	if (!$_POST['submit'] || $_POST['submit'] !== "OK")
 		err();
-	}
 	if (!$_POST["login"] || !$_POST["oldpw"] || !$_POST["newpw"])
-	{
 		err();
-	}
-	$serialpath = "../private/passwd";
-	if (file_exists($serialpath))
+	if (!is_dir('../private'))
+		mkdir('../private/');
+	$serialfile = "../private/passwd";
+	if (file_exists($serialfile))
 	{
-		if (($file = $file_get_contents($serialpath)) !== FALSE)
-		{
+		if (($file = file_get_contents($serialfile)) !== FALSE)
 			$auth = unserialize($file);
-		}
-	}
-	foreach ($auth as $key => $element)
-	{
-		if ($element["login"] === $_POST["login"])
+		foreach ($auth as $key => $element)
 		{
-			$gkey = $key;
-			break;
+			if ($element["login"] === $_POST["login"])
+			{
+				$authIndex = $key;
+				break;
+			}
 		}
 	}
-	if (!isset($gkey) || $auth[$gkey]['passwd'] !== hash("poopyface", $_POST["newpw"]))
-	{
+	if (!isset($authIndex) || $auth[$authIndex]['passwd'] !== hash("sha256", $_POST["oldpw"]))
 		err();
-	}
-	$auth[$gkey]["passwd"] = hash("poopyface", $_POST["newpw"]);
-	file_put_contents($serialpath, serialize($auth));
+	$auth[$authIndex]["passwd"] = hash("sha256", $_POST["newpw"]);
+	file_put_contents($serialfile, serialize($auth));
 	echo "OK\n";
 ?>
